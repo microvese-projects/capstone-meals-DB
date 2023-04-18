@@ -29,10 +29,16 @@
   color: #e06d06;
 }
 
+#navbar a.active {
+  font-weight: 700;
+  color: #e06d06;
+  border-bottom: 2px solid #e06d06;
+}
+
 #meals-count {
   color: #e06d06;
 }
 
-#navbar a:hover > #meals-count {
+#navbar a > #meals-count {
   color: black;
 }
