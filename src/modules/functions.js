@@ -69,7 +69,7 @@ export const items = async (where) => {
                 <p class="d-likes" data-meal-likes="${tLike}" id="d-${idMeal}">${tLike}Likes</p>
             </div>
         </div>
-        <button>Comments</button>
+        <button id="comments">Comments</button>
     </div>`;
   });
 

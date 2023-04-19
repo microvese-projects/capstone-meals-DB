@@ -1,4 +1,8 @@
+import popupFunctions from './popupFunctions.js';
+import showComments from './showComments.js';
+
 const popup = document.querySelector('#popup');
+const mealsContainer = document.querySelector('#items');
 
 const displayMealData = ({
   idMeal, strMeal, strCategory, strArea, strInstructions, strYoutube, strMealThumb,
@@ -22,7 +26,7 @@ const displayMealData = ({
           </div>
         </div>
         <div>
-          <h3>Comments (<span id="comments-count">2</span>)</h3>
+          <h3>Comments (<span id="comments-count"></span>)</h3>
           <ul id="previous-comments">
           </ul>
         </div>
@@ -36,6 +40,10 @@ const displayMealData = ({
         </form>
   `;
   popup.innerHTML = data;
+  mealsContainer.style.display = 'none';
+  popup.style.display = 'flex';
+  popupFunctions();
+  showComments(idMeal);
 };
 
 export default displayMealData;
