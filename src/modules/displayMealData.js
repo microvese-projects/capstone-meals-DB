@@ -24,11 +24,9 @@ const displayMealData = ({
         <div>
           <h3>Comments (<span id="comments-count">2</span>)</h3>
           <ul id="previous-comments">
-            <li>01/02/2023 Ben: I love the meal!</li>
-            <li>01/02/2023 Rushema: I love the meal!</li>
           </ul>
         </div>
-        <form>
+        <form data-id=${idMeal}>
           <h3 id="form-heading">Add a comment</h3>
           <label for="name">Your name</label>
           <input type="text" id="name" minlength="3" placeholder="Your name" required> 
