@@ -130,6 +130,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/modules/countComments.js":
+/*!**************************************!*\
+  !*** ./src/modules/countComments.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst countComments = (container) => {\n  const comments = container.querySelectorAll('li');\n  const noOfComments = Array.from(comments).length;\n  return noOfComments;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (countComments);\n\n//# sourceURL=webpack://webpack-demo/./src/modules/countComments.js?");
+
+/***/ }),
+
 /***/ "./src/modules/displayMealData.js":
 /*!****************************************!*\
   !*** ./src/modules/displayMealData.js ***!
@@ -176,7 +186,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* eslint camelcase: [\"error\", {ignoreDestructuring: true}] */\nconst showComments = async (id) => {\n  const commentsContainer = document.querySelector('#previous-comments');\n  const noOfComments = document.querySelector('#comments-count');\n  let count = 0;\n\n  try {\n    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/q8H2szMFEsTpJoVpaCnr/comments?item_id=${id}`);\n    const comments = await res.json();\n    commentsContainer.innerHTML = '';\n    commentsContainer.style.color = 'black';\n    comments.forEach(({\n      comment, creation_date, username,\n    }) => {\n      const li = document.createElement('li');\n      li.textContent = `${(new Date(creation_date)).toLocaleDateString()} ${username}: ${comment}`;\n      commentsContainer.appendChild(li);\n      count += 1;\n    });\n  } catch (err) {\n    commentsContainer.textContent = 'Add a comment!';\n    commentsContainer.style.color = 'grey';\n  }\n\n  noOfComments.innerHTML = count;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showComments);\n\n//# sourceURL=webpack://webpack-demo/./src/modules/showComments.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _countComments_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./countComments.js */ \"./src/modules/countComments.js\");\n\n\n/* eslint camelcase: [\"error\", {ignoreDestructuring: true}] */\nconst showComments = async (id) => {\n  const commentsContainer = document.querySelector('#previous-comments');\n  const noOfComments = document.querySelector('#comments-count');\n\n  try {\n    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/q8H2szMFEsTpJoVpaCnr/comments?item_id=${id}`);\n    const comments = await res.json();\n    commentsContainer.innerHTML = '';\n    commentsContainer.style.color = 'black';\n    comments.forEach(({\n      comment, creation_date, username,\n    }) => {\n      const li = document.createElement('li');\n      li.textContent = `${(new Date(creation_date)).toLocaleDateString()} ${username}: ${comment}`;\n      commentsContainer.appendChild(li);\n    });\n  } catch (err) {\n    commentsContainer.textContent = 'Add a comment!';\n    commentsContainer.style.color = 'grey';\n  }\n\n  noOfComments.innerHTML = (0,_countComments_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(commentsContainer);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showComments);\n\n//# sourceURL=webpack://webpack-demo/./src/modules/showComments.js?");
 
 /***/ }),
 
