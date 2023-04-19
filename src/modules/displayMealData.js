@@ -22,6 +22,7 @@ const displayMealData = ({
         </div>
         <div id="preparation-instructions">
           <div>
+            <h2 id="preparation-heading">Preparation Instructions</h2>
             ${instructions.map((instruction) => `<p>${instruction}</p>`)}
           </div>
         </div>

@@ -76,6 +76,8 @@
 
 #meal-name {
   font-size: 1.4rem;
+  color: #e06d06;
+  text-decoration: underline;
 }
 
 .bold {
@@ -87,6 +89,11 @@
   max-width: 60ch;
   margin: 0 auto;
   text-align: center;
+}
+
+#preparation-heading {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 form {
