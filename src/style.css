@@ -42,3 +42,58 @@
 #navbar a > #meals-count {
   color: black;
 }
+
+main {
+  display: flex;
+}
+
+#items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 10%;
+  gap: 10%;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.item {
+  width: 20%;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 400px;
+}
+
+.images {
+  width: 100%;
+  height: auto;
+}
+
+.images:hover {
+  cursor: pointer;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-likes:hover {
+  cursor: pointer;
+}
+
+footer {
+  border-top: 2px solid black;
+  margin: 10px 10%;
+}
+
+footer p {
+  padding: 30px;
+}
