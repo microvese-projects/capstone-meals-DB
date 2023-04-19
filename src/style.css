@@ -53,6 +53,7 @@ main {
   margin: 50px 10%;
   gap: 10%;
   justify-content: center;
+  flex-direction: row;
 }
 
 .item {
@@ -61,10 +62,12 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 400px;
 }
 
 .images {
   width: 100%;
+  height: auto;
 }
 
 .images:hover {
