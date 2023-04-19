@@ -116,7 +116,47 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./images/logo.png */ \"./src/images/logo.png\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconst logoContainer = document.querySelector('#logoContainer');\nlogoContainer.src = _images_logo_png__WEBPACK_IMPORTED_MODULE_0__;\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./images/logo.png */ \"./src/images/logo.png\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_callApi_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/callApi.js */ \"./src/modules/callApi.js\");\n/* harmony import */ var _modules_postComment_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/postComment.js */ \"./src/modules/postComment.js\");\n/* harmony import */ var _modules_showComments_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/showComments.js */ \"./src/modules/showComments.js\");\n\n\n\n\n\n\nconst logoContainer = document.querySelector('#logoContainer');\nlogoContainer.src = _images_logo_png__WEBPACK_IMPORTED_MODULE_0__;\n\n(async () => {\n  await (0,_modules_callApi_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(53043);\n  await (0,_modules_showComments_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(53043);\n  const form = document.querySelector('form');\n  form.addEventListener('submit', async (e) => {\n    (0,_modules_postComment_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(e);\n  });\n})();\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/callApi.js":
+/*!********************************!*\
+  !*** ./src/modules/callApi.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _displayMealData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./displayMealData.js */ \"./src/modules/displayMealData.js\");\n\n\nconst callApi = async (id) => {\n  const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);\n  const json = await res.json();\n  const { meals } = json;\n  const meal = meals[0];\n  (0,_displayMealData_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(meal);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (callApi);\n\n//# sourceURL=webpack://webpack-demo/./src/modules/callApi.js?");
+
+/***/ }),
+
+/***/ "./src/modules/displayMealData.js":
+/*!****************************************!*\
+  !*** ./src/modules/displayMealData.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst popup = document.querySelector('#popup');\n\nconst displayMealData = ({\n  idMeal, strMeal, strCategory, strArea, strInstructions, strYoutube, strMealThumb,\n}) => {\n  const instructions = strInstructions.split('\\r\\n')\n    .filter((each) => each !== '');\n\n  const data = `\n        <div id=\"close-popup\">X</div>\n        <img src=${strMealThumb} alt=${strMeal}>\n        <h3 id=\"meal-name\">${strMeal}</h3>\n        <div id=\"data\">\n          <p><span class=\"bold\">Id:</span> ${idMeal}</p>\n          <p><span class=\"bold\">Category:</span> ${strCategory}</p>\n          <p><span class=\"bold\">Origin:</span> ${strArea}</p>\n          <p><span class=\"bold\">Youtube:</span> <a href=${strYoutube}>Link</a></p>\n        </div>\n        <div id=\"preparation-instructions\">\n          <div>\n            ${instructions.map((instruction) => `<p>${instruction}</p>`)}\n          </div>\n        </div>\n        <div>\n          <h3>Comments (<span id=\"comments-count\">2</span>)</h3>\n          <ul id=\"previous-comments\">\n          </ul>\n        </div>\n        <form data-id=${idMeal}>\n          <h3 id=\"form-heading\">Add a comment</h3>\n          <label for=\"name\">Your name</label>\n          <input type=\"text\" id=\"name\" minlength=\"3\" placeholder=\"Your name\" required> \n          <label for=\"insights\">Your Insights</label>\n          <textarea id=\"insights\" minlength=\"3\" placeholder=\"Your insights\" minlength=\"3\" required></textarea>\n          <button type=\"Submit\">Comment</button>\n        </form>\n  `;\n  popup.innerHTML = data;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayMealData);\n\n//# sourceURL=webpack://webpack-demo/./src/modules/displayMealData.js?");
+
+/***/ }),
+
+/***/ "./src/modules/postComment.js":
+/*!************************************!*\
+  !*** ./src/modules/postComment.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _showComments_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./showComments.js */ \"./src/modules/showComments.js\");\n\n\nconst postComment = async (e) => {\n  e.preventDefault();\n  const form = e.target;\n  const name = form.querySelector('#name')\n    .value\n    .split(' ')\n    .map((each) => each.split('').map((char, i) => {\n      if (i === 0) {\n        return char.toUpperCase();\n      }\n      return char.toLowerCase();\n    }).join(''))\n    .join(' ');\n  const message = form.querySelector('#insights').value;\n  const { id } = form.dataset;\n\n  try {\n    await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/q8H2szMFEsTpJoVpaCnr/comments', {\n      method: 'POST',\n      body: JSON.stringify({\n        item_id: id,\n        username: name,\n        comment: message,\n      }),\n      headers: {\n        'Content-type': 'application/json; charset=UTF-8',\n      },\n    });\n    (0,_showComments_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(id);\n  } catch (err) {\n    throw new Error(err);\n  }\n  form.reset();\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postComment);\n\n\n//# sourceURL=webpack://webpack-demo/./src/modules/postComment.js?");
+
+/***/ }),
+
+/***/ "./src/modules/showComments.js":
+/*!*************************************!*\
+  !*** ./src/modules/showComments.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* eslint camelcase: [\"error\", {ignoreDestructuring: true}] */\nconst showComments = async (id) => {\n  const commentsContainer = document.querySelector('#previous-comments');\n  try {\n    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/q8H2szMFEsTpJoVpaCnr/comments?item_id=${id}`);\n    const comments = await res.json();\n    commentsContainer.innerHTML = '';\n    comments.forEach(({\n      comment, creation_date, username,\n    }) => {\n      const li = document.createElement('li');\n      li.textContent = `${(new Date(creation_date)).toLocaleDateString()} ${username}: ${comment}`;\n      commentsContainer.appendChild(li);\n    });\n  } catch (err) {\n    commentsContainer.textContent = 'Add a comment!';\n    commentsContainer.style.color = 'grey';\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showComments);\n\n//# sourceURL=webpack://webpack-demo/./src/modules/showComments.js?");
 
 /***/ }),
 
