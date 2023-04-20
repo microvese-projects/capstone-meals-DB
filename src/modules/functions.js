@@ -41,6 +41,11 @@ const likess = async () => {
   return message;
 };
 
+const countHomeItems = (where) => {
+  const items = where.querySelectorAll('.item');
+  return items.length;
+};
+
 export const items = async (where) => {
   const allLike = await likess();
   let innerHtml = '';
@@ -74,6 +79,6 @@ export const items = async (where) => {
   });
 
   where.innerHTML = innerHtml;
-  document.querySelector('#meals-count').innerHTML = message.meals.length;
+  document.querySelector('#meals-count').innerHTML = countHomeItems(where);
   await addLike();
 };
