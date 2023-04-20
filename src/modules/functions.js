@@ -14,7 +14,7 @@ export const addLike = async () => {
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
-        },
+        }
       );
       const messageJson = await data.text();
       if (messageJson === 'Created') {
@@ -34,11 +34,16 @@ const likess = async () => {
     {
       method: 'GET',
       redirect: 'follow',
-    },
+    }
   );
   const messageJson = await data.text();
   const message = await JSON.parse(messageJson);
   return message;
+};
+
+const countHomeItems = (where) => {
+  const items = where.querySelectorAll('.item');
+  return items.length;
 };
 
 export const items = async (where) => {
@@ -49,7 +54,7 @@ export const items = async (where) => {
     {
       method: 'GET',
       redirect: 'follow',
-    },
+    }
   );
   const messageJson = await data.text();
   const message = await JSON.parse(messageJson);
@@ -74,6 +79,6 @@ export const items = async (where) => {
   });
 
   where.innerHTML = innerHtml;
-  document.querySelector('#meals-count').innerHTML = message.meals.length;
+  document.querySelector('#meals-count').innerHTML = countHomeItems(where);
   await addLike();
 };
