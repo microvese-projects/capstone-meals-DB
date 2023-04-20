@@ -1,4 +1,4 @@
-const countHomeItems = require('./countHomeItems.js');
+const countHomeItems = require('../modules/countHomeItems.js');
 
 const section = document.createElement('ul');
 
