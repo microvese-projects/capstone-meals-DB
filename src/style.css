@@ -119,6 +119,15 @@ form button {
   font-weight: 600;
   cursor: pointer;
   box-shadow: 5px 4px 3px black;
+  transition: all 0.1s ease;
+}
+
+form button:hover {
+  background-color: #e06d06;
+  outline: none;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
 }
 
 #previous-comments {
@@ -167,8 +176,22 @@ form button {
   align-items: center;
 }
 
-.btn-likes:hover {
+.comments {
+  padding-block: 5px;
+  transition: all 0.3s ease-in-out;
+  transition-delay: 250ms;
+}
+
+.btn-likes:hover,
+.comments:hover {
   cursor: pointer;
+}
+
+.comments:hover {
+  background: #e06d06;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 1px 2px 4px olive;
 }
 
 footer {

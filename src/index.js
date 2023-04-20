@@ -9,7 +9,7 @@ const itemsContainer = document.querySelector('#items');
 
 (async () => {
   await items(itemsContainer);
-  const commentsButtons = document.querySelectorAll('#comments');
+  const commentsButtons = document.querySelectorAll('.comments');
   commentsButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const mealContainer = btn.parentNode;
