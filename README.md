@@ -50,7 +50,7 @@
 <!-- Key Features -->
 
 ### Key Features <a name="key-features"></a>
-We plan have implemented the following main features: 
+We have implemented the following main features: 
 - **[Homepage]** 
 This section shows the different meals a user can prepare in the kitchen.
 
@@ -122,6 +122,7 @@ Tests can be run through the command below:
 👤 **Rushema Anicet**
 
 - GitHub: [@rushemaa](https://github.com/rushemaa)
+- LinkedIn: [Rushema Anicet](https://www.linkedin.com/in/rushema-anicet-77494088/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -160,7 +161,7 @@ If you like this project, you can show your support by giving this project's rep
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank Microverse for the outstanding collection of information they have provided that enabled me to create the project.
+We would like to thank Microverse for the outstanding collection of information they have provided that enabled us to create the project.
 
 
 <!-- LICENSE -->
