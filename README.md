@@ -11,6 +11,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+- [ Video Walkthrough](#video)
 - - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -32,6 +33,16 @@
 # 📖 Capstone Meals DB <a name="about-project"></a>
 
 **Capstone Meals DB** is a project that was created to inline with the Microverse curriculumn. It is an app that makes calls to an api and displays a list of different meals posted as cards on the homepage. A user can like a meal card and the record saved to an API. In addition, the user can click on a comments button to view a recipe for creating the meal. In the comments section, the user can comment on a meals recipe and the result is posted to an API. On page popup-loading, information and comments of a certain meal are retrieved and posted. 
+
+<!-- LIVE DEMO -->
+
+## 🚀 Video Walkthrough <a name="video"></a>
+You can find a video walkthrough of the project on the link below: 
+
+- [Video Walkthrough](https://drive.google.com/file/d/1nrejmqsR84QI5tGWbIczxHK-PBzwQmfL/view?usp=sharing)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
