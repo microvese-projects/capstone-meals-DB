@@ -4,4 +4,4 @@ const countComments = (container) => {
   return noOfComments;
 };
 
-export default countComments;
+module.exports = countComments;
