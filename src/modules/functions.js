@@ -1,9 +1,15 @@
 import likeBtn from '../images/heart.svg';
 
 export const addLike = async () => {
+  const LikedArr = JSON.parse(localStorage.getItem('liked')) || [];
+
   document.querySelectorAll('.btn-likes').forEach((element) => {
     element.addEventListener('click', async () => {
+      const liked = await element.dataset.liked;
       // adding like
+      if (liked === 'true' || LikedArr.includes(element.dataset.btnLike)) {
+        return;
+      }
       const data = await fetch(
         'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/q8H2szMFEsTpJoVpaCnr/likes',
         {
@@ -24,6 +30,9 @@ export const addLike = async () => {
         lDisplay.innerHTML = `${totalLikes}Likes`;
         lDisplay.dataset.mealLikes = totalLikes;
       }
+      element.dataset.liked = true;
+      LikedArr.push(element.dataset.btnLike);
+      localStorage.setItem('liked', JSON.stringify(LikedArr));
     });
   });
 };
@@ -70,7 +79,7 @@ export const items = async (where) => {
         <div class="details">
             <h3>${strMeal}</h3>
             <div class="likes">
-                <img class="btn-likes" data-btn-like="${idMeal}" src="${likeBtn}">
+                <img class="btn-likes" data-btn-like="${idMeal}" data-liked="false" src="${likeBtn}">
                 <p class="d-likes" data-meal-likes="${tLike}" id="d-${idMeal}">${tLike}Likes</p>
             </div>
         </div>
