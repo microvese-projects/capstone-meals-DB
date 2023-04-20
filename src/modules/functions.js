@@ -14,7 +14,7 @@ export const addLike = async () => {
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
-        }
+        },
       );
       const messageJson = await data.text();
       if (messageJson === 'Created') {
@@ -34,7 +34,7 @@ const likess = async () => {
     {
       method: 'GET',
       redirect: 'follow',
-    }
+    },
   );
   const messageJson = await data.text();
   const message = await JSON.parse(messageJson);
@@ -54,7 +54,7 @@ export const items = async (where) => {
     {
       method: 'GET',
       redirect: 'follow',
-    }
+    },
   );
   const messageJson = await data.text();
   const message = await JSON.parse(messageJson);
