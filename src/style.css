@@ -178,7 +178,8 @@ form button:hover {
 
 .comments {
   padding-block: 5px;
-  transition: all 0.2s linear;
+  transition: all 0.3s ease-in-out;
+  transition-delay: 250ms;
 }
 
 .btn-likes:hover,
